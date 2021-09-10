@@ -44,9 +44,18 @@
 
   h4 {
     color: white;
-    white-space: nowrap;
     /*:trollcrazy:*/
     flex-basis: 100%;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 800px) {
+    h4 {
+      color: white;
+      /*:trollcrazy:*/
+      flex-basis: 100%;
+      white-space: normal;
+    }
   }
   
   /* Not needed
