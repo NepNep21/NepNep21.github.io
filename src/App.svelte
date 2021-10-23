@@ -8,7 +8,7 @@
 
 <main>
   <h4>
-    Hello, i'm nep (not real name), i'm 14, pan, male, and i spend most of my time playing games or working on projects :3
+    Hello, i'm nep (not real name), i'm 15, pan, male, and i spend most of my time playing games or working on projects :3
   </h4>
   <!--viewBox from rain, AGPL-->
   <a href="https://github.com/NepNep21" title="My github">
