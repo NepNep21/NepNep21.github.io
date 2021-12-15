@@ -49,7 +49,7 @@
     white-space: nowrap;
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 50em) {
     h4 {
       color: white;
       /*:trollcrazy:*/
