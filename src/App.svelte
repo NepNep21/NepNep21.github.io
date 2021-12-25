@@ -43,13 +43,6 @@
     color: white;
     font-weight: bold;
     margin: 0 1em;
-    white-space: nowrap;
-  }
-
-  @media only screen and (max-width: 50em) {
-    h4 {
-      white-space: normal;
-    }
   }
 
   button {
