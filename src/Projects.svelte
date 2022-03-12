@@ -54,7 +54,7 @@
         necessary for people who want to use it after the forced account migration starts.
       </p>
       {:else}
-        <p>More projects can be found at <a href="https://github.com/NepNep21">my github</a></p>
+        <p>More projects can be found at <a href="https://github.com/NepNep21">my github.</a></p>
       {/if}
     </span>
     <button on:click={() => {
