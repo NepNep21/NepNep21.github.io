@@ -1,57 +1,75 @@
 <script>
-  import {mdiGithub, mdiSteam, mdiDiscord} from "@mdi/js";
+  import About from "./About.svelte";
+  import { mdiAccount, mdiCodeTags } from "@mdi/js";
+  import Projects from "./Projects.svelte";
 
-  function discordClipboard() {
-    navigator.clipboard.writeText("Nep Nep#3025");
-  }
+  let page = "About";
 </script>
 
 <main>
-  <h4>
-    Hello, i'm nep (not real name), i'm 15, pan, male, and i spend most of my time playing games or working on projects :3
-  </h4>
-  <div style="flex-direction: row;">
-    <!--viewBox from rain, AGPL-->
-    <a href="https://github.com/NepNep21" title="My github">
-      <svg viewBox="0 0 24 24" width=64px height=64px>
-        <path d={mdiGithub}>
-      </svg>
-    </a>
+  <div class="root-wrapper">
+    <div id="navbar">
+      <span class="pageIcon">
+        <h1>About</h1>
+        <button class="pageButton" on:click={() => page = "About"}>
+          <svg viewBox="0 0 24 24" width=32px height=32px>
+            <path d={mdiAccount}/>
+          </svg>
+        </button>
+      </span>
+    
+      <span class="pageIcon">
+        <h1>Projects</h1>
+        <button class="pageButton" on:click={() => page = "Projects"}>
+          <svg viewBox="0 0 24 24" width=32px height=32px>
+            <path d={mdiCodeTags}/>
+          </svg>
+        </button>
+      </span>
+    </div>
+  
+    <div class="row-break"></div>
 
-    <a href="https://steamcommunity.com/profiles/76561198303469579" title="My steam">
-      <svg viewBox="0 0 24 24" width=64px height=64px>
-        <path d={mdiSteam}>
-      </svg>
-    </a>
-
-    <button on:click={discordClipboard} title="Copy discord tag">
-      <svg viewBox="0 0 24 24" width=64px height=64px>
-        <path d={mdiDiscord}>
-      </svg>
-    </button>
+    {#if page === "About"}
+      <About/>
+    {:else if page === "Projects"}
+      <Projects/>
+    {/if}
   </div>
 </main>
 
 <style>
-  main {
+  #navbar {
+    background-color: #757575;
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    margin-bottom: 3em;
+    padding-bottom: 1em;
+    padding-left: 0.5em;
+  }
+
+  .pageIcon {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  h4 {
-    color: white;
-    font-weight: bold;
-    margin: 0 1em;
+  .pageButton {
+    transition: filter 1s;
   }
 
-  button {
-    cursor: pointer;
-    background-color: #212121;
-    border: none;
+  .pageButton:hover {
+    filter: invert(20%);
   }
 
-  svg {
-    filter: invert(80%);
+  .root-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .row-break {
+    flex-basis: 100%;
   }
 </style>

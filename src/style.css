@@ -1,0 +1,15 @@
+button {
+  cursor: pointer;
+  background-color: #212121;
+  border: none;
+}
+  
+svg {
+  filter: invert(80%);
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
