@@ -7,17 +7,17 @@
   function updateDots() {
     const elements = document.getElementsByClassName("dot");
     for (const element of elements) {
-      element.style.filter = "";
+      element.style.backgroundColor = "#7f7f7f";
     }
     const dot = elements.item(page);
-    dot.style.filter = "invert(50%)";
+    dot.style.backgroundColor = "white";
   }
 
   onMount(updateDots);
 </script>
 
 <main class="column">
-  <span class="row" style="gap: 0.5em; margin-bottom: 1em;">
+  <span class="row button-row">
     <span class="dot"></span>
     <span class="dot"></span>
     <span class="dot"></span>
@@ -83,15 +83,10 @@
     margin: auto auto 2em;
   }
 
-  .row {
-    display: flex;
-    flex-direction: row;
-  }
-
   .dot {
     width: 0.5em;
     height: 0.5em;
-    background-color: white;
+    background-color: #7f7f7f;
     border-radius: 50%;
   }
 </style>
