@@ -8,7 +8,7 @@
   
 <main class="column">
   <h4>
-    Hello, I'm Nep, I'm 15, pan, male, and I spend most of my time playing games or working on projects :3
+    Hello, I'm Nep, I'm 15, pan, female, and I spend most of my time playing games or working on projects :3
   </h4>
   <div style="flex-direction: row;">
     <!--viewBox from rain, AGPL-->
