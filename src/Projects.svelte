@@ -89,4 +89,9 @@
     background-color: #7f7f7f;
     border-radius: 50%;
   }
+
+  /* Keep arrows stationary (doesn't work on low widths, fix later) */
+  span.column {
+    min-width: 60vw
+  }
 </style>
