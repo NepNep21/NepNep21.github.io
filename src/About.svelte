@@ -1,5 +1,5 @@
 <script>
-  import { mdiGithub, mdiSteam, mdiDiscord } from "@mdi/js";
+  import { mdiGithub, mdiSteam, mdiDiscord, mdiMatrix } from "@mdi/js";
   
   function discordClipboard() {
     navigator.clipboard.writeText("Nep Nep#3025");
@@ -29,6 +29,12 @@
         <path d={mdiDiscord}/>
       </svg>
     </button>
+
+    <a href="https://matrix.to/#/@nep_nep:matrix.bottomservices.club" title="Matrix">
+      <svg viewBox="0 0 24 24" width=64px height=64px>
+        <path d={mdiMatrix}/>
+      </svg>
+    </a>
   </div>
 </main>
   
