@@ -58,6 +58,10 @@
     {:else if page === 1}
       <Projects/>
     {/if}
+
+    <button on:click={async () => await (new Audio("/media/Pomf.mp3").play())}>
+      <img width="64" height="64" src="/media/Pomf.jpeg" alt="Pomf">
+    </button>
   </div>
 </main>
 
