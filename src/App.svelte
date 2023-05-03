@@ -59,6 +59,8 @@
       <Projects/>
     {/if}
 
+    <span class="row-break"></span>
+
     <button on:click={async () => await (new Audio("/media/Pomf.mp3").play())}>
       <img width="64" height="64" src="/media/Pomf.jpeg" alt="Pomf">
     </button>
