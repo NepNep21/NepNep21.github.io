@@ -2,7 +2,7 @@
   import { mdiGithub, mdiSteam, mdiDiscord, mdiMatrix } from "@mdi/js";
   
   function discordClipboard() {
-    navigator.clipboard.writeText("Nep Nep#3025");
+    navigator.clipboard.writeText("@nepnepcat");
   }
 </script>
   
