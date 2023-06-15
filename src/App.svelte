@@ -1,8 +1,9 @@
 <script>
   import About from "./About.svelte";
-  import { mdiAccount, mdiCodeTags } from "@mdi/js";
+  import { mdiAccount, mdiCodeTags, mdiHeart } from "@mdi/js";
   import { onMount } from "svelte";
   import Projects from "./Projects.svelte";
+  import Heresy from "./Heresy.svelte";
 
   let page = 0;
 
@@ -21,6 +22,7 @@
 <main>
   <div class="root-wrapper">
     <span class="row button-row">
+      <span class="dot-top"></span>
       <span class="dot-top"></span>
       <span class="dot-top"></span>
     </span>
@@ -49,6 +51,17 @@
           </svg>
         </button>
       </span>
+      <span class="pageIcon">
+        <h1>?</h1>
+        <button class="pageButton" on:click={() => {
+          page = 2;
+          updateDots();
+        }}>
+          <svg viewBox="0 0 24 24" width=32px height=32px>
+            <path d={mdiHeart}/>
+          </svg>
+        </button>
+      </span>
     </div>
   
     <span class="row-break"></span>
@@ -57,13 +70,17 @@
       <About/>
     {:else if page === 1}
       <Projects/>
+    {:else if page === 2}
+      <Heresy/>
     {/if}
 
     <span class="row-break"></span>
 
-    <button on:click={async () => await (new Audio("/media/Pomf.mp3").play())}>
-      <img width="64" height="64" src="/media/Pomf.jpeg" alt="Pomf">
-    </button>
+    {#if page != 2}
+      <button on:click={async () => await (new Audio("/media/Pomf.mp3").play())}>
+        <img width="64" height="64" src="/media/Pomf.jpeg" alt="Pomf">
+      </button>
+    {/if}
   </div>
 </main>
 
@@ -76,6 +93,7 @@
     margin-bottom: 3em;
     padding-bottom: 1em;
     padding-left: 0.5em;
+    padding-right: 0.5em;
   }
 
   .pageIcon {
