@@ -37,4 +37,8 @@
     color: white;
     text-align: center;
   }
+
+  main {
+    margin: auto 25%;
+  }
 </style>
