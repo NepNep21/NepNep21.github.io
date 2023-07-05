@@ -29,7 +29,7 @@
     if and when the time comes, maybe it will become one. 
   </p>
   <br/>
-  <p>The other side is not ready yet, check again next month.</p>
+  <p>The other side is not ready yet, check again soon.</p>
 </main>
 
 <style>

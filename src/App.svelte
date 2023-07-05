@@ -114,6 +114,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    padding-top: 2em;
   }
 
   .row-break {
