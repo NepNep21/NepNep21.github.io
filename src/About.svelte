@@ -4,6 +4,12 @@
   function discordClipboard() {
     navigator.clipboard.writeText("@nepnepcat");
   }
+
+  async function fediClipboard() {
+    const a = await fetch("https://social.bottomservices.club/_nep/user").then(resp => resp.text());
+
+    navigator.clipboard.writeText(a);
+  }
 </script>
   
 <main class="column">
@@ -36,11 +42,11 @@
       </svg>
     </a>
 
-    <a href="https://social.bottomservices.club/@nep" title="Fediverse">
+    <button on:click={fediClipboard} title="Copy fediverse tag">
       <svg viewBox="0 0 24 24" width=64px height=64px>
         <path d={mdiMastodon}/>
       </svg>
-    </a>
+    </button>
   </div>
 </main>
   
