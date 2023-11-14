@@ -1,18 +1,25 @@
 <script>
   import { mdiGithub, mdiSteam, mdiDiscord, mdiMatrix, mdiMastodon } from "@mdi/js";
+  import { toasts } from "svelte-toasts";
   
   function discordClipboard() {
-    navigator.clipboard.writeText("@nepnepcat");
+    clipAndToast("@nepnepcat");
   }
 
   async function fediClipboard() {
     const a = await fetch("https://social.bottomservices.club/_nep/user").then(resp => resp.text());
 
-    navigator.clipboard.writeText(a);
+    clipAndToast(a);
+  }
+
+  function clipAndToast(txt) {
+    navigator.clipboard.writeText(txt);
+
+    toasts.add({ title: "Copied!", description: "", duration: 3000, type: "success" });
   }
 </script>
   
-<main class="column">
+<main class="column" id="about">
   <h4>
     Hewwo, I'm Nep, I'm 17, bi, female, and I spend most of my time playing games or working on projects :3
   </h4>

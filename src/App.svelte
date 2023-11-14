@@ -4,6 +4,7 @@
   import { onMount } from "svelte";
   import Projects from "./Projects.svelte";
   import Heresy from "./Heresy.svelte";
+  import { ToastContainer, FlatToast } from "svelte-toasts";
 
   let page = 0;
 
@@ -20,6 +21,9 @@
 </script>
 
 <main>
+  <ToastContainer placement="top-center" let:data={data}>
+    <FlatToast {data} />
+  </ToastContainer>
   <div class="root-wrapper">
     <span class="row button-row">
       <span class="dot-top"></span>
