@@ -19,7 +19,7 @@
   }
 </script>
   
-<main class="column" id="about">
+<main class="column">
   <h4>
     Hewwo, I'm Nep, I'm 17, bi, female, and I spend most of my time playing games or working on projects :3
   </h4>
