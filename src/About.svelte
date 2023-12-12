@@ -1,5 +1,5 @@
 <script>
-  import { mdiGithub, mdiSteam, mdiDiscord, mdiMatrix, mdiMastodon } from "@mdi/js";
+  import { mdiGithub, mdiSteam, mdiDiscord, mdiMatrix, mdiMastodon, mdiKey } from "@mdi/js";
   import { toasts } from "svelte-toasts";
   
   function discordClipboard() {
@@ -24,7 +24,6 @@
     Hewwo, I'm Nep, I'm 17, bi, female, and I spend most of my time playing games or working on projects :3
   </h4>
   <div style="flex-direction: row;">
-    <!--viewBox from rain, AGPL-->
     <a href="https://github.com/NepNep21" title="My github">
       <svg viewBox="0 0 24 24" width=64px height=64px>
         <path d={mdiGithub}/>
@@ -54,6 +53,12 @@
         <path d={mdiMastodon}/>
       </svg>
     </button>
+
+    <a href="/key.gpg" title="PGP public key">
+      <svg viewBox="0 0 24 24" width=64px height=64px>
+        <path d={mdiKey}/>
+      </svg>
+    </a>
   </div>
 </main>
   
