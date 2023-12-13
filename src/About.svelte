@@ -23,7 +23,7 @@
   <h4>
     Hewwo, I'm Nep, I'm 17, bi, female, and I spend most of my time playing games or working on projects :3
   </h4>
-  <div style="flex-direction: row;">
+  <div id="container">
     <a href="https://github.com/NepNep21" title="My github">
       <svg viewBox="0 0 24 24" width=64px height=64px>
         <path d={mdiGithub}/>
@@ -67,5 +67,12 @@
     color: white;
     font-weight: bold;
     margin: 0 1em;
+  }
+
+  #container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
   }
 </style>
