@@ -1,6 +1,7 @@
 <script>
-  import { mdiArrowLeft, mdiArrowRight, mdiDiscord, mdiMinecraft } from "@mdi/js";
+  import { mdiArrowLeft, mdiArrowRight, mdiMinecraft } from "@mdi/js";
   import { onMount } from "svelte";
+  import { siDiscord } from "simple-icons";
 
   let page = 0;
 
@@ -36,7 +37,7 @@
     <span class="column">
       {#if page === 0}
         <svg viewBox="0 0 24 24" width=32px height=32px>
-          <path d={mdiDiscord}/>
+          <path d={siDiscord.path}/>
         </svg>
         <a href="https://github.com/NepNep21/DiscordRPC4j16">DiscordRPC4j16</a>
         <p>

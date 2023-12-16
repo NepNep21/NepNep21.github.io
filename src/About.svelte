@@ -1,6 +1,7 @@
 <script>
-  import { mdiGithub, mdiSteam, mdiDiscord, mdiMatrix, mdiMastodon, mdiKey } from "@mdi/js";
+  import { mdiGithub, mdiSteam, mdiMatrix, mdiMastodon, mdiKey } from "@mdi/js";
   import { toasts } from "svelte-toasts";
+  import { siDiscord } from "simple-icons";
   
   function discordClipboard() {
     clipAndToast("@nepnepcat");
@@ -38,7 +39,7 @@
   
     <button on:click={discordClipboard} title="Copy discord tag">
       <svg viewBox="0 0 24 24" width=64px height=64px>
-        <path d={mdiDiscord}/>
+        <path d={siDiscord.path}/>
       </svg>
     </button>
 
