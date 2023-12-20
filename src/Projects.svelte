@@ -52,7 +52,7 @@
       <a href="https://github.com/NepNep21/MSA4Legacy">MSA4Legacy</a>
       <p>
         A set of patches for the old, pre 1.12 official minecraft launcher for adding microsoft account support,
-        necessary for people who want to use it after the forced account migration starts.
+        necessary for people who want to use it since the forced account migration.
       </p>
       {:else}
         <p>More projects can be found at <a href="https://github.com/NepNep21">my github</a>.</p>
