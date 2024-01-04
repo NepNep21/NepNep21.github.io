@@ -6,18 +6,14 @@
   import Heresy from "./Heresy.svelte";
   import { ToastContainer, FlatToast } from "svelte-toasts";
 
-  let i = 0;
-  let obj = {};
-  for (const page of ["/about", "/projects", "/heresy", "/support"]) {
-    obj[page] = i++;
-  }
+  let page = 0;
 
   function updateDots() {
     const elements = document.getElementsByClassName("dot-top");
     for (const element of elements) {
       element.style.backgroundColor = "#7f7f7f";
     }
-    const dot = elements.item(obj[window.location.pathname]);
+    const dot = elements.item(page);
     dot.style.backgroundColor = "white";
   }
 
@@ -40,7 +36,7 @@
       <span class="pageIcon">
         <h1>About</h1>
         <button class="pageButton" on:click={() => {
-           window.location.pathname = "/about";
+           page = 0;
            updateDots();
         }}>
           <svg viewBox="0 0 24 24" width=32px height=32px>
@@ -52,7 +48,7 @@
       <span class="pageIcon">
         <h1>Projects</h1>
         <button class="pageButton" on:click={() => {
-          window.location.pathname = "/projects";
+          page = 1;
           updateDots();
         }}>
           <svg viewBox="0 0 24 24" width=32px height=32px>
@@ -63,7 +59,7 @@
       <span class="pageIcon">
         <h1>?</h1>
         <button class="pageButton" on:click={() => {
-          window.location.pathname = "/heresy";
+          page = 2;
           updateDots();
         }}>
           <svg viewBox="0 0 24 24" width=32px height=32px>
@@ -71,10 +67,11 @@
           </svg>
         </button>
       </span>
+
       <span class="pageIcon">
         <h1>Support</h1>
         <button class="pageButton" on:click={() => {
-          window.location.pathname = "/support";
+          page = 3;
           updateDots();
         }}>
           <svg viewBox="0 0 24 24" width=32px height=32px>
@@ -86,13 +83,13 @@
   
     <span class="row-break"></span>
 
-    {#if window.location.pathname === "/about" || window.location.pathname === "/"}
+    {#if page === 0}
       <About/>
-    {:else if window.location.pathname === "/projects"}
+    {:else if page === 1}
       <Projects/>
-    {:else if window.location.pathname === "/heresy"}
+    {:else if page === 2}
       <Heresy/>
-    {:else if window.location.pathname === "/support"}
+    {:else if page === 3}
       <div>
         <p class="address">Bitcoin: bc1q9wjqskt6gx9su0jpk5uxuce5htzxv6xznqv98a</p>
         <p class="address">Monero: 4ASxnoi3pkU557rzyASBbeA3anZ1QyB216Gnee6JUJHAd1DZ9jsRsG3RemLnhdFeA33ojU1xKWgVEGdKnwka8cJB3tqXkZN</p>
@@ -101,7 +98,7 @@
 
     <span class="row-break"></span>
 
-    {#if window.location.pathname != "/heresy"}
+    {#if page != 2}
       <button on:click={async () => await (new Audio("/media/Pomf.mp3").play())}>
         <img width="64" height="64" src="/media/Pomf.jpeg" alt="Pomf">
       </button>
