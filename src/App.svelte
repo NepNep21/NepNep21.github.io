@@ -1,19 +1,23 @@
 <script>
   import About from "./About.svelte";
-  import { mdiAccount, mdiCodeTags, mdiHeart } from "@mdi/js";
+  import { mdiAccount, mdiCodeTags, mdiCurrencyUsd, mdiHeart } from "@mdi/js";
   import { onMount } from "svelte";
   import Projects from "./Projects.svelte";
   import Heresy from "./Heresy.svelte";
   import { ToastContainer, FlatToast } from "svelte-toasts";
 
-  let page = 0;
+  let i = 0;
+  let obj = {};
+  for (const page of ["/about", "/projects", "/heresy", "/support"]) {
+    obj[page] = i++;
+  }
 
   function updateDots() {
     const elements = document.getElementsByClassName("dot-top");
     for (const element of elements) {
       element.style.backgroundColor = "#7f7f7f";
     }
-    const dot = elements.item(page);
+    const dot = elements.item(obj[window.location.pathname]);
     dot.style.backgroundColor = "white";
   }
 
@@ -29,13 +33,14 @@
       <span class="dot-top"></span>
       <span class="dot-top"></span>
       <span class="dot-top"></span>
+      <span class="dot-top"></span>
     </span>
     <span class="row-break"></span>
     <div id="navbar">
       <span class="pageIcon">
         <h1>About</h1>
         <button class="pageButton" on:click={() => {
-           page = 0;
+           window.location.pathname = "/about";
            updateDots();
         }}>
           <svg viewBox="0 0 24 24" width=32px height=32px>
@@ -47,7 +52,7 @@
       <span class="pageIcon">
         <h1>Projects</h1>
         <button class="pageButton" on:click={() => {
-          page = 1;
+          window.location.pathname = "/projects";
           updateDots();
         }}>
           <svg viewBox="0 0 24 24" width=32px height=32px>
@@ -58,7 +63,7 @@
       <span class="pageIcon">
         <h1>?</h1>
         <button class="pageButton" on:click={() => {
-          page = 2;
+          window.location.pathname = "/heresy";
           updateDots();
         }}>
           <svg viewBox="0 0 24 24" width=32px height=32px>
@@ -66,21 +71,37 @@
           </svg>
         </button>
       </span>
+      <span class="pageIcon">
+        <h1>Support</h1>
+        <button class="pageButton" on:click={() => {
+          window.location.pathname = "/support";
+          updateDots();
+        }}>
+          <svg viewBox="0 0 24 24" width=32px height=32px>
+            <path d={mdiCurrencyUsd}/>
+          </svg>
+        </button>
+      </span>
     </div>
   
     <span class="row-break"></span>
 
-    {#if page === 0}
+    {#if window.location.pathname === "/about" || window.location.pathname === "/"}
       <About/>
-    {:else if page === 1}
+    {:else if window.location.pathname === "/projects"}
       <Projects/>
-    {:else if page === 2}
+    {:else if window.location.pathname === "/heresy"}
       <Heresy/>
+    {:else if window.location.pathname === "/support"}
+      <div>
+        <p class="address">Bitcoin: bc1q9wjqskt6gx9su0jpk5uxuce5htzxv6xznqv98a</p>
+        <p class="address">Monero: 4ASxnoi3pkU557rzyASBbeA3anZ1QyB216Gnee6JUJHAd1DZ9jsRsG3RemLnhdFeA33ojU1xKWgVEGdKnwka8cJB3tqXkZN</p>
+      </div>
     {/if}
 
     <span class="row-break"></span>
 
-    {#if page != 2}
+    {#if window.location.pathname != "/heresy"}
       <button on:click={async () => await (new Audio("/media/Pomf.mp3").play())}>
         <img width="64" height="64" src="/media/Pomf.jpeg" alt="Pomf">
       </button>
@@ -130,5 +151,11 @@
     height: 0.5em;
     background-color: #7f7f7f;
     border-radius: 50%;
+  }
+
+  .address {
+    font-size: 150%;
+    color: white;
+    text-wrap: nowrap;
   }
 </style>
