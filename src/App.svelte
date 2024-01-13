@@ -5,6 +5,7 @@
   import Projects from "./Projects.svelte";
   import Heresy from "./Heresy.svelte";
   import { ToastContainer, FlatToast } from "svelte-toasts";
+  import { clipAndToast } from "./util"
 
   let page = 0;
 
@@ -38,7 +39,7 @@
         <button class="pageButton" on:click={() => {
            page = 0;
            updateDots();
-        }}>
+        }} aria-label="Account page">
           <svg viewBox="0 0 24 24" width=32px height=32px>
             <path d={mdiAccount}/>
           </svg>
@@ -50,7 +51,7 @@
         <button class="pageButton" on:click={() => {
           page = 1;
           updateDots();
-        }}>
+        }} aria-label="Projects page">
           <svg viewBox="0 0 24 24" width=32px height=32px>
             <path d={mdiCodeTags}/>
           </svg>
@@ -61,7 +62,7 @@
         <button class="pageButton" on:click={() => {
           page = 2;
           updateDots();
-        }}>
+        }} aria-label="Heresy...">
           <svg viewBox="0 0 24 24" width=32px height=32px>
             <path d={mdiHeart}/>
           </svg>
@@ -73,7 +74,7 @@
         <button class="pageButton" on:click={() => {
           page = 3;
           updateDots();
-        }}>
+        }} aria-label="Financial support page">
           <svg viewBox="0 0 24 24" width=32px height=32px>
             <path d={mdiCurrencyUsd}/>
           </svg>
@@ -90,9 +91,13 @@
     {:else if page === 2}
       <Heresy/>
     {:else if page === 3}
-      <div>
-        <p class="address">Bitcoin: bc1q9wjqskt6gx9su0jpk5uxuce5htzxv6xznqv98a</p>
-        <p class="address">Monero: 4ASxnoi3pkU557rzyASBbeA3anZ1QyB216Gnee6JUJHAd1DZ9jsRsG3RemLnhdFeA33ojU1xKWgVEGdKnwka8cJB3tqXkZN</p>
+      <div class="column" style="gap: 0.5em; margin-bottom: 1em;">
+        <button on:click={() => clipAndToast("bc1q9wjqskt6gx9su0jpk5uxuce5htzxv6xznqv98a")} class="address">
+          Copy bitcoin address
+        </button>
+        <button on:click={() => clipAndToast("4ASxnoi3pkU557rzyASBbeA3anZ1QyB216Gnee6JUJHAd1DZ9jsRsG3RemLnhdFeA33ojU1xKWgVEGdKnwka8cJB3tqXkZN")} class="address">
+          Copy monero address
+        </button>
       </div>
     {/if}
 
@@ -112,7 +117,7 @@
     display: flex;
     flex-direction: row;
     gap: 1em;
-    margin-bottom: 3em;
+    margin-bottom: 1em;
     padding-bottom: 1em;
     padding-left: 0.5em;
     padding-right: 0.5em;
@@ -151,8 +156,16 @@
   }
 
   .address {
-    font-size: 150%;
-    color: white;
-    text-wrap: nowrap;
+    height: 4em;
+    background-color: #757575;
+    transition: background-color 1s;
+  }
+
+  .address:focus {
+    background-color: #505050;
+  }
+
+  .address:hover {
+    background-color: #505050;
   }
 </style>

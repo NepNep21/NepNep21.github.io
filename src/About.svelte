@@ -1,7 +1,7 @@
 <script>
   import { mdiGithub, mdiSteam, mdiMatrix, mdiMastodon, mdiKey } from "@mdi/js";
-  import { toasts } from "svelte-toasts";
   import { siDiscord } from "simple-icons";
+  import { clipAndToast } from "./util"
   
   function discordClipboard() {
     clipAndToast("@nepnepcat");
@@ -11,12 +11,6 @@
     const a = await fetch("https://social.bottomservices.club/_nep/user").then(resp => resp.text());
 
     clipAndToast(a);
-  }
-
-  function clipAndToast(txt) {
-    navigator.clipboard.writeText(txt);
-
-    toasts.add({ title: "Copied!", description: "", duration: 3000, type: "success" });
   }
 </script>
   
